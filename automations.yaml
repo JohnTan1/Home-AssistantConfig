@@ -1,1 +1,39 @@
-[]
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+smartir:
+
+climate:
+  - platform: smartir
+    name: Study AC
+    unique_id: study_ac
+    device_code: 9999
+    controller_data: remote.study
+    temperature_sensor: sensor.temperature
+    humidity_sensor: sensor.humidity
+    power_sensor: binary_sensor.ac_power
+  - platform: smartir
+    name: Living Room AC
+    unique_id: living_room_ac
+    device_code: 9999
+    controller_data: remote.living_room
+    temperature_sensor: sensor.temperature
+    humidity_sensor: sensor.humidity
+    power_sensor: binary_sensor.ac_power
+  - platform: smartir
+    name: Master Bedroom AC
+    unique_id: master_bedroom_ac
+    device_code: 9999
+    controller_data: remote.master_bedroom
+    temperature_sensor: sensor.temperature
+    humidity_sensor: sensor.humidity
+    power_sensor: binary_sensor.ac_power
